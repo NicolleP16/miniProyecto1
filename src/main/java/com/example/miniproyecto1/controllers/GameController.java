@@ -4,6 +4,7 @@ import com.example.miniproyecto1.models.Game;
 import com.example.miniproyecto1.models.RandomWords;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.animation.Timeline;
 import javafx.animation.KeyFrame;
@@ -16,12 +17,30 @@ public class GameController {
 
     @FXML
     void onActionEnviarButtom(ActionEvent event) {
-        game.increaseLevel();
-        game.resetTime();
-        levelLabel.setText("Nivel: " + game.getLevel());
-        updateWord(game.getLevel());
-        startTimer();
+        if (wordTextField.isDisabled()) {
+            return;
+        }
 
+        String enteredWord = wordTextField.getText();
+        String correctWord = randomWordLabel.getText();
+
+        if (enteredWord.equals(correctWord)) {
+            game.increaseLevel();
+            game.resetTime();
+            levelLabel.setText("Nivel: " + game.getLevel());
+            updateWord(game.getLevel());
+            startTimer();
+            messageLabel.setText("¡Correcto! Muy bien :)");
+            messageLabel.setStyle("-fx-text-fill: green;");
+        } else {
+            if (game.reduceOpportunity()) {
+                updateWord(game.getLevel());
+                messageLabel.setText("¡Incorrecto! :( Intenta de nuevo");
+                messageLabel.setStyle("-fx-text-fill: red;");
+            } else {
+                endGame();
+            }
+        }
         wordTextField.clear();
     }
 
@@ -47,6 +66,16 @@ public class GameController {
         startTimer();
     }
 
+    private void endGame() {
+        timeline.stop();
+        randomWordLabel.setText("Juego terminado");
+        levelLabel.setText("Nivel: " + game.getLevel());
+        timeLabel.setText("00:00");
+
+        wordTextField.setDisable(true);
+        enviarButton.setDisable(true);
+    }
+
     private void updateWord(int level) {
         String word = randomWords.getRandomWord(level);
         randomWordLabel.setText(word);
@@ -59,7 +88,13 @@ public class GameController {
     private Label timeLabel;
 
     @FXML
+    private Label messageLabel;
+
+    @FXML
     private TextField wordTextField;
+
+    @FXML
+    private Button enviarButton;
 
     @FXML
     private Timeline timeline;
@@ -82,11 +117,11 @@ public class GameController {
                 game.reduceTime();
                 timeLabel.setText(formatTime(game.getTimeRemaining()));
             } else {
-                timeline.stop();
+                endGame();
             }
         }));
 
-        timeline.setCycleCount(game.getTimeRemaining());
+        timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
 }

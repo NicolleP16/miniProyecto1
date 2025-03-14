@@ -14,5 +14,6 @@
       <Label fx:id="timeLabel" layoutX="545.0" layoutY="18.0" text="00:20" />
       <Label fx:id="randomWordLabel" layoutX="226.0" layoutY="169.0" prefHeight="17.0" prefWidth="149.0" text="Palabra" />
       <Label fx:id="levelLabel" layoutX="14.0" layoutY="18.0" text="Nivel: " />
+      <Label fx:id="messageLabel" layoutX="226.0" layoutY="232.0" text=" " />
    </children>
 </AnchorPane>
