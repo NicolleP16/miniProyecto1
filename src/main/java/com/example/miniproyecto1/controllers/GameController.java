@@ -7,7 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.animation.Timeline;
 import javafx.animation.KeyFrame;
+import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
+import javafx.scene.input.KeyEvent;
 
 public class GameController {
 
@@ -19,6 +21,14 @@ public class GameController {
         updateWord(game.getLevel());
         startTimer();
     }
+
+    @FXML
+    void onKeyPressedWordTextField(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            onActionEnviarButtom(new ActionEvent());
+        }
+    }
+
     @FXML
     private Label randomWordLabel;
 

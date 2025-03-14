@@ -1,6 +1,7 @@
 module com.example.miniproyecto1 {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
     opens com.example.miniproyecto1.controllers to javafx.fxml;
     opens com.example.miniproyecto1.models to javafx.fxml;
