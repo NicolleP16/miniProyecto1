@@ -10,6 +10,7 @@ import javafx.animation.KeyFrame;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.control.TextField;
 
 public class GameController {
 
@@ -20,6 +21,8 @@ public class GameController {
         levelLabel.setText("Nivel: " + game.getLevel());
         updateWord(game.getLevel());
         startTimer();
+
+        wordTextField.clear();
     }
 
     @FXML
@@ -54,6 +57,9 @@ public class GameController {
 
     @FXML
     private Label timeLabel;
+
+    @FXML
+    private TextField wordTextField;
 
     @FXML
     private Timeline timeline;

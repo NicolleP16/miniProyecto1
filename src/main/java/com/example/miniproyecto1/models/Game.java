@@ -30,8 +30,12 @@ public class Game {
     }
 
     public void resetTime() {
-        this.timeRemaining = 20;
+        this.timeRemaining = 20 - ((level / 5) * 2);
+        if (this.timeRemaining < 2) {
+            this.timeRemaining = 2;
+        }
     }
+
 
     public int getLevel() {
         return level;
