@@ -11,7 +11,7 @@
       <Button layoutX="386.0" layoutY="200.0" mnemonicParsing="false" onAction="#onActionEnviarButtom" text="Enviar" />
       <ProgressBar layoutX="386.0" layoutY="43.0" prefWidth="200.0" progress="0.0" />
       <TextField layoutX="226.0" layoutY="200.0" />
-      <Label layoutX="545.0" layoutY="18.0" text="00:20" />
+      <Label fx:id="timeLabel" layoutX="545.0" layoutY="18.0" text="00:20" />
       <Label fx:id="randomWordLabel" layoutX="226.0" layoutY="169.0" prefHeight="17.0" prefWidth="149.0" text="Palabra" />
       <Label fx:id="levelLabel" layoutX="14.0" layoutY="18.0" text="Nivel: " />
    </children>

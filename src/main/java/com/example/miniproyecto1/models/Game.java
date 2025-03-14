@@ -23,6 +23,16 @@ public class Game {
         return oportunities > 0;
     }
 
+    public void reduceTime() {
+        if (timeRemaining > 0) {
+            timeRemaining--;
+        }
+    }
+
+    public void resetTime() {
+        this.timeRemaining = 20;
+    }
+
     public int getLevel() {
         return level;
     }
