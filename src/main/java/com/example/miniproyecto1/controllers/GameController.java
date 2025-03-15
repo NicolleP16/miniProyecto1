@@ -53,6 +53,9 @@ public class GameController {
     @FXML
     private Label fastTypingLabel;
 
+    @FXML
+    private Button ResetButtom;
+
     private Image[] eclipseImages = new Image[5];
 
     /**
@@ -145,6 +148,24 @@ public class GameController {
      * Instance of Game class that manages the game state, including level, time, and opportunities.
      */
     private Game game = new Game();
+
+    public void onActionRestartGame() {
+        game = new Game();
+        randomWords = new RandomWords();
+
+        randomWordLabel.setText(randomWords.getRandomWord(game.getLevel()));
+        levelLabel.setText("Nivel: " + game.getLevel());
+        timeLabel.setText(formatTime(game.getTimeRemaining()));
+
+        feedbackLabel.setText("");
+        messageLabel.setText("");
+
+        wordTextField.setText("");
+        wordTextField.setDisable(false);
+        enviarButton.setDisable(false);
+
+        startTimer();
+    }
 
     /**
      * Ends the game by stopping the timer, updating the labels, and disabling the input controls.

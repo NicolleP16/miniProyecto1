@@ -17,5 +17,6 @@
       <ImageView fx:id="eclipseImageView" fitHeight="100" fitWidth="100" layoutX="14.0" layoutY="85.0" />
       <Label fx:id="feedbackLabel" layoutX="132.0" layoutY="230.0" text="" />
       <Label fx:id="fastTypingLabel" layoutX="90.0" layoutY="20.0" text="ESCRITURA RÁPIDA" style="-fx-font-family: 'Roboto Light'; -fx-font-size: 24px; -fx-font-weight: bold;" />
+      <Button layoutX="200.0" layoutY="260.0" mnemonicParsing="false" onAction="#onActionRestartGame" text="Reiniciar" />
    </children>
 </AnchorPane>
