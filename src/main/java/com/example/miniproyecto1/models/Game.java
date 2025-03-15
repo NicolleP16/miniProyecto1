@@ -3,12 +3,12 @@ package com.example.miniproyecto1.models;
 public class Game {
     private int level;
     private int timeRemaining;
-    private int oportunities;
+    private int opportunities;
 
     public Game() {
         this.level = 1;
         this.timeRemaining = 20;
-        this.oportunities = 4;
+        this.opportunities = 4;
     }
 
     public void increaseLevel() {
@@ -19,8 +19,8 @@ public class Game {
     }
 
     public boolean reduceOpportunity() {
-        oportunities--;
-        return oportunities > 0;
+        opportunities--;
+        return opportunities > 0;
     }
 
     public void reduceTime() {
@@ -45,7 +45,7 @@ public class Game {
         return timeRemaining;
     }
 
-    public int getOportunity() {
-        return oportunities;
+    public int getOpportunity() {
+        return opportunities;
     }
 }

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.miniproyecto1.controllers.GameController">
    <children>
@@ -15,5 +16,6 @@
       <Label fx:id="randomWordLabel" layoutX="226.0" layoutY="169.0" prefHeight="17.0" prefWidth="149.0" text="Palabra" />
       <Label fx:id="levelLabel" layoutX="14.0" layoutY="18.0" text="Nivel: " />
       <Label fx:id="messageLabel" layoutX="226.0" layoutY="232.0" text=" " />
+      <ImageView fx:id="eclipseImageView" layoutX="14.0" layoutY="40.0" fitHeight="100" fitWidth="100"/>
    </children>
 </AnchorPane>

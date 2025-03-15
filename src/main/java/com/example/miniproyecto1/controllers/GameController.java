@@ -8,10 +8,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.animation.Timeline;
 import javafx.animation.KeyFrame;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 public class GameController {
 
@@ -34,18 +36,44 @@ public class GameController {
             messageLabel.setStyle("-fx-text-fill: green;");
         } else {
             if (game.reduceOpportunity()) {
+                int remainingOpportunities = game.getOpportunity();
+                int index = 4 - remainingOpportunities;
+                if (index < 5) {
+                    eclipseImageView.setImage(eclipseImages[index]);
+                }
+
                 game.resetTime();
                 updateWord(game.getLevel());
                 startTimer();
                 messageLabel.setText("¡Incorrecto! :( Intenta de nuevo");
                 messageLabel.setStyle("-fx-text-fill: red;");
             } else {
+                eclipseImageView.setImage(eclipseImages[4]);
+
                 messageLabel.setText("¡Incorrecto! :( Perdiste");
                 messageLabel.setStyle("-fx-text-fill: red;");
                 endGame();
             }
         }
         wordTextField.clear();
+    }
+
+    private Image[] eclipseImages = new Image[5];
+
+    public void initialize() {
+        for (int i = 0; i < 5; i++) {
+            eclipseImages[i] = new Image(getClass().getResourceAsStream(
+                    "/com/example/miniproyecto1/images/sol" + (i) + ".png"));
+        }
+
+        eclipseImageView.setImage(eclipseImages[0]);
+
+        String word = randomWords.getRandomWord(1);
+        randomWordLabel.setText(word);
+
+        levelLabel.setText("Nivel: " + game.getLevel());
+        timeLabel.setText(formatTime(game.getTimeRemaining()));
+        startTimer();
     }
 
 
@@ -61,15 +89,6 @@ public class GameController {
 
     private RandomWords randomWords = new RandomWords();
     private Game game = new Game();
-
-    public void initialize() {
-        String word = randomWords.getRandomWord(1);
-        randomWordLabel.setText(word);
-
-        levelLabel.setText("Nivel: " + game.getLevel());
-        timeLabel.setText(formatTime(game.getTimeRemaining()));
-        startTimer();
-    }
 
     private void endGame() {
         timeline.stop();
@@ -103,6 +122,9 @@ public class GameController {
 
     @FXML
     private Timeline timeline;
+
+    @FXML
+    private ImageView eclipseImageView;
 
     private String formatTime(int totalSeconds) {
         int minutes = totalSeconds / 60;
