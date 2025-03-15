@@ -159,6 +159,7 @@ public class GameController {
 
         feedbackLabel.setText("");
         messageLabel.setText("");
+        eclipseImageView.setImage(eclipseImages[0]);
 
         wordTextField.setText("");
         wordTextField.setDisable(false);
