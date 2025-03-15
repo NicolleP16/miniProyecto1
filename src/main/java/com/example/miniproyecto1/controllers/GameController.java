@@ -149,6 +149,9 @@ public class GameController {
      */
     private Game game = new Game();
 
+    /**
+     * Handles the action event that is triggered when the “Restart” button is clicked.
+     */
     public void onActionRestartGame() {
         game = new Game();
         randomWords = new RandomWords();
