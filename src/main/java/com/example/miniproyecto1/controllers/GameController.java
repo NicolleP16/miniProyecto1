@@ -76,7 +76,11 @@ public class GameController {
 
     /**
      * Handles the action event that is triggered when the “Enviar” button is clicked.
-     * @param event
+     * This method checks if the entered word matches the correct word displayed.
+     *  - If correct, the level increases, time resets, and a new word appears.
+     *  - If incorrect, an opportunity is lost, and an eclipse image updates.
+     *  - If no opportunities remain, the game ends.
+     * @param event, the action event triggered by pressing the "Enviar" button.
      */
     @FXML
     void onActionEnviarButtom(ActionEvent event) {
@@ -121,7 +125,9 @@ public class GameController {
 
     /**
      * Handles the key event triggered by a key press in the word text field.
-     * @param keyEvent
+     * If the Enter key is pressed, it triggers the same action as clicking
+     * the "Enviar" button by calling onActionEnviarButtom(ActionEvent).
+     * @param keyEvent, the key event triggered when a key is pressed in the text field.
      */
     @FXML
     void onKeyPressedWordTextField(KeyEvent keyEvent) {
@@ -130,7 +136,14 @@ public class GameController {
         }
     }
 
+    /**
+     * Instance of the RandomWords class used to generate random words for the game.
+     */
     private RandomWords randomWords = new RandomWords();
+
+    /**
+     * Instance of Game class that manages the game state, including level, time, and opportunities.
+     */
     private Game game = new Game();
 
     /**
@@ -151,7 +164,7 @@ public class GameController {
 
     /**
      * Updates the displayed word based on the current level.
-     * @param level
+     * @param level, the current level of the game, which determines the difficulty of the word.
      */
     private void updateWord(int level) {
         String word = randomWords.getRandomWord(level);
@@ -160,8 +173,8 @@ public class GameController {
 
     /**
      * Formats the time from total seconds into a "MM:SS" string.
-     * @param totalSeconds
-     * @return
+     * @param totalSeconds, the total time in seconds to be formatted.
+     * @return A string representing the formatted time in "MM:SS" format.
      */
     private String formatTime(int totalSeconds) {
         int minutes = totalSeconds / 60;

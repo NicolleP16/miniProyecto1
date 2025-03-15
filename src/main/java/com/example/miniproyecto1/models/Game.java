@@ -8,6 +8,10 @@ public class Game {
     private int timeRemaining;
     private int opportunities;
 
+    /**
+     * Initializes a new Game instance with default values.
+     * The game starts at level 1, with 20 seconds remaining and 4 opportunities.
+     */
     public Game() {
         this.level = 1;
         this.timeRemaining = 20;
@@ -26,7 +30,8 @@ public class Game {
 
     /**
      * Reduces the number of opportunities by 1 and returns whether there are still opportunities left.
-     * @return
+     * @return true if there are still opportunities left after the reduction,
+     *         false if no opportunities remain.
      */
     public boolean reduceOpportunity() {
         opportunities--;
@@ -54,7 +59,7 @@ public class Game {
 
     /**
      * Returns the current level of the game.
-     * @return
+     * @return the current level
      */
     public int getLevel() {
         return level;
@@ -62,7 +67,7 @@ public class Game {
 
     /**
      * Returns the remaining time in the game.
-     * @return
+     * @return the remaining time
      */
     public int getTimeRemaining() {
         return timeRemaining;
@@ -70,7 +75,7 @@ public class Game {
 
     /**
      * Returns the number of remaining opportunities in the game.
-     * @return
+     * @return the number of remaining opportunities.
      */
     public int getOpportunity() {
         return opportunities;
