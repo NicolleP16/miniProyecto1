@@ -4,6 +4,7 @@ import com.example.miniproyecto1.models.Game;
 import com.example.miniproyecto1.models.RandomWords;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.animation.Timeline;
@@ -50,7 +51,7 @@ public class GameController {
             } else {
                 eclipseImageView.setImage(eclipseImages[4]);
 
-                messageLabel.setText("¡Incorrecto! :( Perdiste");
+                messageLabel.setText("¡Incorrecto!");
                 messageLabel.setStyle("-fx-text-fill: red;");
                 endGame();
             }
@@ -91,10 +92,13 @@ public class GameController {
     private Game game = new Game();
 
     private void endGame() {
+
         timeline.stop();
-        randomWordLabel.setText("Juego terminado");
+        randomWordLabel.setText("Fin");
         levelLabel.setText("Nivel: " + game.getLevel());
         timeLabel.setText("00:00");
+
+        feedbackLabel.setText("¡Perdiste! Nivel alcanzado: " + game.getLevel());
 
         wordTextField.setDisable(true);
         enviarButton.setDisable(true);
@@ -125,6 +129,12 @@ public class GameController {
 
     @FXML
     private ImageView eclipseImageView;
+
+    @FXML
+    private Label feedbackLabel;
+
+    @FXML
+    private Label fastTypingLabel;
 
     private String formatTime(int totalSeconds) {
         int minutes = totalSeconds / 60;

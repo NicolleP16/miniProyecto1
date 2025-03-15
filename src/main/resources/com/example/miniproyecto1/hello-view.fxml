@@ -4,18 +4,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.miniproyecto1.controllers.GameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.miniproyecto1.controllers.GameController">
    <children>
-      <Button layoutX="386.0" layoutY="200.0" mnemonicParsing="false" onAction="#onActionEnviarButtom" text="Enviar" />
-      <ProgressBar layoutX="386.0" layoutY="43.0" prefWidth="200.0" progress="0.0" />
-      <TextField fx:id="wordTextField" layoutX="226.0" layoutY="200.0" onKeyPressed="#onKeyPressedWordTextField" />
-      <Label fx:id="timeLabel" layoutX="545.0" layoutY="18.0" text="00:20" />
-      <Label fx:id="randomWordLabel" layoutX="226.0" layoutY="169.0" prefHeight="17.0" prefWidth="149.0" text="Palabra" />
-      <Label fx:id="levelLabel" layoutX="14.0" layoutY="18.0" text="Nivel: " />
-      <Label fx:id="messageLabel" layoutX="226.0" layoutY="232.0" text=" " />
-      <ImageView fx:id="eclipseImageView" layoutX="14.0" layoutY="40.0" fitHeight="100" fitWidth="100"/>
+      <Button layoutX="290.0" layoutY="160.0" mnemonicParsing="false" onAction="#onActionEnviarButtom" text="Enviar" />
+      <TextField fx:id="wordTextField" layoutX="130.0" layoutY="160.0" onKeyPressed="#onKeyPressedWordTextField" promptText="Escribe aquí" />
+      <Label fx:id="timeLabel" layoutX="340.0" layoutY="60.0" text= "00:20" style="-fx-font-family: 'Roboto Light'; -fx-font-size: 16px;" />
+      <Label fx:id="randomWordLabel" layoutX="175.0" layoutY="130.0" prefHeight="17.0" prefWidth="149.0" text="Palabra" style="-fx-font-family: 'Roboto Light'; -fx-font-size: 20px;" />
+      <Label fx:id="levelLabel" layoutX="14.0" layoutY="60.0" text="Nivel: " style="-fx-font-family: 'Roboto Light'; -fx-font-size: 16px;" />
+      <Label fx:id="messageLabel" layoutX="132.0" layoutY="200.0" text=" " />
+      <ImageView fx:id="eclipseImageView" fitHeight="100" fitWidth="100" layoutX="14.0" layoutY="85.0" />
+      <Label fx:id="feedbackLabel" layoutX="132.0" layoutY="230.0" text="" />
+      <Label fx:id="fastTypingLabel" layoutX="90.0" layoutY="20.0" text="ESCRITURA RÁPIDA" style="-fx-font-family: 'Roboto Light'; -fx-font-size: 24px; -fx-font-weight: bold;" />
    </children>
 </AnchorPane>
