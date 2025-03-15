@@ -34,15 +34,20 @@ public class GameController {
             messageLabel.setStyle("-fx-text-fill: green;");
         } else {
             if (game.reduceOpportunity()) {
+                game.resetTime();
                 updateWord(game.getLevel());
+                startTimer();
                 messageLabel.setText("¡Incorrecto! :( Intenta de nuevo");
                 messageLabel.setStyle("-fx-text-fill: red;");
             } else {
+                messageLabel.setText("¡Incorrecto! :( Perdiste");
+                messageLabel.setStyle("-fx-text-fill: red;");
                 endGame();
             }
         }
         wordTextField.clear();
     }
+
 
     @FXML
     void onKeyPressedWordTextField(KeyEvent keyEvent) {
@@ -117,7 +122,7 @@ public class GameController {
                 game.reduceTime();
                 timeLabel.setText(formatTime(game.getTimeRemaining()));
             } else {
-                endGame();
+                onActionEnviarButtom(new ActionEvent());
             }
         }));
 
