@@ -54,6 +54,9 @@ public class GameController {
     private Label fastTypingLabel;
 
     @FXML
+    private Label descriptionGame;
+
+    @FXML
     private Button ResetButtom;
 
     private Image[] eclipseImages = new Image[5];
