@@ -1,1 +1,0 @@
-moduleSearchIndex = [{"l":"com.example.miniproyecto1"}];updateSearchResults();
