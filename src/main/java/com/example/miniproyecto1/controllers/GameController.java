@@ -109,7 +109,6 @@ public class GameController {
                 if (index < 5) {
                     eclipseImageView.setImage(eclipseImages[index]);
                 }
-
                 game.resetTime();
                 updateWord(game.getLevel());
                 startTimer();
