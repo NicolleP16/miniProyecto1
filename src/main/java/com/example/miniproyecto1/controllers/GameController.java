@@ -57,6 +57,9 @@ public class GameController {
     private Label descriptionGame;
 
     @FXML
+    private Label opportunitiesLabel;
+
+    @FXML
     private Button ResetButtom;
 
     private Image[] eclipseImages = new Image[5];
